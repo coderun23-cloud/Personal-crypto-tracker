@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
-import Coin from "./pages/coin";
+import Coin from "./pages/Coin";
 import Footer from "./components/Footer";
 
 function App() {
