@@ -1,16 +1,18 @@
 .spinner {
-  display: grid;
-  place-self: center;
-  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
 }
+
+/* Spinning Loader Circle */
 .spin {
-  width: 65px;
-  height: 65p;
-  place-self: center;
-  border: 5px solid #bdbdbd;
-  border-top-color: #4500c6;
+  width: 50px;
+  height: 50px;
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #3b82f6; /* blue accent */
   border-radius: 50%;
-  animation: rotate 2s infinite;
+  animation: spin 1s linear infinite;
 }
 @keyframes rorate {
   100% {
@@ -56,4 +58,12 @@
 }
 .coin-info ul li:last-child {
   font-weight: 300;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
