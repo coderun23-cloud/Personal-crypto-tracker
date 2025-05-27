@@ -3,12 +3,14 @@ import "../pages/coin.css";
 import { useParams } from "react-router-dom";
 import { CoinContext } from "../context/CoinContext";
 import LionChart from "../components/LionChart";
+import { useNavigate } from "react-router-dom";
 
 function Coin() {
   const { coinId } = useParams();
   const [coinData, seCoinData] = useState();
   const [historicalcoinData, seHistoricalCoinData] = useState();
   const { currency } = useContext(CoinContext);
+  const navigate = useNavigate();
 
   const fetchCoinData = async () => {
     try {
@@ -44,6 +46,9 @@ function Coin() {
 
   return (
     <div className="coin">
+      <button className="go-back-btn" onClick={() => navigate(-1)}>
+        ⬅ Back
+      </button>
       <div className="coin-name">
         <img src={coinData.image.large} alt={coinData.name} />
         <p>
@@ -52,9 +57,11 @@ function Coin() {
           </b>
         </p>
       </div>
+
       <div className="coin-chart">
         <LionChart historicalcoinData={historicalcoinData} />
       </div>
+
       <div className="coin-info">
         <ul>
           <li>Crypto Market Rank</li>
